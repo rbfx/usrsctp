@@ -182,7 +182,7 @@ list(APPEND usrsctp_sources
 
 add_library(usrsctp ${usrsctp_sources} ${usrsctp_headers})
 
-target_include_directories(usrsctp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(usrsctp PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
 
 if(SCTP_USE_MBEDTLS_SHA1)
 	target_include_directories(usrsctp PRIVATE ${MBEDTLS_INCLUDE_DIRS})
